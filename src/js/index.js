@@ -1,6 +1,10 @@
 var listItem = require('application-temp');
 var moment = require('moment');
 var baseurl = 'http://latestayapp.com/';
+if (window.location.host === 'latestayapp.com') {
+    baseurl = '/';
+    console.log('baseurl is ' + '/');
+}
 var url = baseurl + 'applications/';
 // var url = 'http://phptek-latestay.local/applications/';
 var req = $.ajax(url);
