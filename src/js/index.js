@@ -1,5 +1,4 @@
 var listItem = require('application-temp');
-var moment = require('moment');
 var baseurl = 'http://latestayapp.com/';
 if (window.location.host === 'latestayapp.com') {
     baseurl = '/';
@@ -13,7 +12,7 @@ $ul = $('ul#applications');
 req.done(function (res) {
     $.each(res.data, function (index, item) {
         var id = item.id;
-        item.created = moment(new Date(item.created_at)).fromNow();
+        item.created = $.timeago(new Date(item.created_at));
         $ul.append(listItem(item));
         $('#application-' + id).removeClass('removed');
     });
@@ -64,7 +63,7 @@ function addApplication(evt) {
      .done(function (res) {
         var item = res.data;
         var id = item.id;
-        item.created = moment(new Date(item.created_at)).fromNow();
+        item.created = $.timeago(new Date(item.created_at));
         $('ul#applications').prepend(listItem(item));
         setTimeout(function () {
             $('#application-' + id).removeClass('removed');

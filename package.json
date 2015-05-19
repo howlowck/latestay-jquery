@@ -2,7 +2,6 @@
   "name": "phptek-jquery-demo",
   "version": "0.1.0",
   "dependencies": {
-    "moment": "^2.10.3"
   },
   "browser": {
     "application-temp": "./src/js/templates/application-item.hbs"
